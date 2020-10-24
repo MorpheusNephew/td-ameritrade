@@ -4,4 +4,6 @@ yarn.lock
 src
 .github
 tests
-./*config.ts
+config.ts
+jest.config.ts
+tsconfig.json
