@@ -1,5 +1,5 @@
 {
-  "name": "@morpheusnephew/td-ameritrade",
+  "name": "@morpheusnephew/td-ameritrade-client",
   "version": "0.0.1",
   "description": "A client for TD Ameritrade",
   "main": "./dist/index.js",
