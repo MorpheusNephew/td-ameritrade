@@ -38,8 +38,9 @@ export default class AuthClient {
     const { data } = response;
 
     if (data) {
-      this._client.accessToken = data.access_token;
-      this._client.refreshToken = data.refresh_token;
+      this._client.accessToken = data.access_token ?? this._client.accessToken;
+      this._client.refreshToken =
+        data.refresh_token ?? this._client.refreshToken;
     }
 
     return response;
