@@ -5,7 +5,7 @@ import { Account } from '@morpheusnephew/td-ameritrade-models';
 
 jest.mock('axios');
 
-describe('Auth client tests', () => {
+describe('Account client tests', () => {
   let mockedAxios: jest.Mocked<typeof axios>;
   let client: TdAmeritradeClient;
 
