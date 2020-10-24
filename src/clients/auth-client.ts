@@ -1,4 +1,4 @@
-import Axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import {
   Token as AccessTokenResponse,
@@ -25,7 +25,7 @@ export default class AuthClient {
       access_type: 'offline',
     };
 
-    const response = await Axios.post<AccessTokenResponse>(
+    const response = await axios.post<AccessTokenResponse>(
       getAccessTokenUrl(),
       qs.stringify(body),
       {
