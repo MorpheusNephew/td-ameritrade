@@ -4,13 +4,13 @@ import {
   Token as AccessTokenResponse,
   TokenRequest as AccessTokenRequest,
 } from '@morpheusnephew/td-ameritrade-models';
-import Client from '.';
+import TdAmeritradeClient from '.';
 import { getAccessTokenUrl } from '..';
 
 export default class AuthClient {
-  private _client: Client;
+  private _client: TdAmeritradeClient;
 
-  constructor(client: Client) {
+  constructor(client: TdAmeritradeClient) {
     this._client = client;
   }
 

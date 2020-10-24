@@ -7,7 +7,7 @@ export interface ClientOptions {
   refreshToken?: string;
 }
 
-export default class Client {
+export default class TdAmeritradeClient {
   clientId: string;
   redirectUri: string;
   accessToken?: string;
