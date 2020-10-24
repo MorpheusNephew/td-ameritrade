@@ -31,12 +31,12 @@ export default class TdAmeritradeClient {
   _makeRequest = async <T>(
     request: (authConfig: {}) => Promise<AxiosResponse<T>>
   ): Promise<AxiosResponse<T>> => {
-    const authConfig = this.getAuthConfig();
+    const authConfig = this._getAuthConfig();
 
     return await request(authConfig);
   };
 
-  private getAuthConfig = () => ({
+  _getAuthConfig = () => ({
     headers: {
       authorization: `Bearer ${this.accessToken}`,
     },
