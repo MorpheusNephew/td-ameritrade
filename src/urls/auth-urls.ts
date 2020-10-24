@@ -1,4 +1,3 @@
-import { stringify } from 'qs';
 import { baseApiUrl, hostname } from '.';
 
 export const getAccessTokenUrl = () => `${baseApiUrl}/oauth2/token`;
@@ -11,13 +10,7 @@ export interface authOptions {
 const baseAuthUrl = `https://auth.${hostname}`;
 
 export const getAuthUrl = (options: authOptions): string => {
-  const { redirect_uri, client_id } = options;
+  const { redirect_uri: redirectUri, client_id: clientId } = options;
 
-  const params = stringify({
-    response_type: 'code',
-    client_id: `${client_id}%40AMER.OAUTHAP`,
-    redirect_uri,
-  });
-
-  return `${baseAuthUrl}/auth?${params}`;
+  return `${baseAuthUrl}/auth?response_type=code&redirect_uri=${redirectUri}&client_id=${clientId}%40AMER.OAUTHAP`;
 };
