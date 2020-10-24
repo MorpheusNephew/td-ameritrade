@@ -3,3 +3,5 @@
 yarn.lock
 src
 .github
+tests
+config.ts
