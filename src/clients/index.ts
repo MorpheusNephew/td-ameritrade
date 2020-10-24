@@ -1,4 +1,6 @@
+import { AxiosResponse } from 'axios';
 import AuthClient from './auth-client';
+import AccountsClient from './accounts-client';
 
 export interface ClientOptions {
   clientId: string;
@@ -12,6 +14,7 @@ export default class TdAmeritradeClient {
   redirectUri: string;
   accessToken?: string;
   refreshToken?: string;
+  accounts: AccountsClient;
   auth: AuthClient;
 
   constructor(options: ClientOptions) {
@@ -21,16 +24,21 @@ export default class TdAmeritradeClient {
     this.accessToken = accessToken;
     this.refreshToken = refreshToken;
 
+    this.accounts = new AccountsClient(this);
     this.auth = new AuthClient(this);
   }
 
-  getAuthConfig = () => ({
+  _makeRequest = async <T>(
+    request: (authConfig: {}) => Promise<AxiosResponse<T>>
+  ): Promise<AxiosResponse<T>> => {
+    const authConfig = this.getAuthConfig();
+
+    return await request(authConfig);
+  };
+
+  private getAuthConfig = () => ({
     headers: {
       authorization: `Bearer ${this.accessToken}`,
     },
   });
-
-  refreshAccessToken = () => {};
-
-  refreshRefreshToken = () => {};
 }
