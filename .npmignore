@@ -3,3 +3,7 @@
 yarn.lock
 src
 .github
+tests
+config.ts
+jest.config.ts
+tsconfig.json

@@ -1,16 +1,16 @@
-import Axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import {
   Token as AccessTokenResponse,
   TokenRequest as AccessTokenRequest,
 } from '@morpheusnephew/td-ameritrade-models';
-import Client from '.';
+import TdAmeritradeClient from '.';
 import { getAccessTokenUrl } from '..';
 
 export default class AuthClient {
-  private _client: Client;
+  private _client: TdAmeritradeClient;
 
-  constructor(client: Client) {
+  constructor(client: TdAmeritradeClient) {
     this._client = client;
   }
 
@@ -25,7 +25,7 @@ export default class AuthClient {
       access_type: 'offline',
     };
 
-    const response = await Axios.post<AccessTokenResponse>(
+    const response = await axios.post<AccessTokenResponse>(
       getAccessTokenUrl(),
       qs.stringify(body),
       {
