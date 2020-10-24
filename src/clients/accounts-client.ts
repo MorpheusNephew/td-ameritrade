@@ -1,5 +1,5 @@
 import { Account } from '@morpheusnephew/td-ameritrade-models';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import TdAmeritradeClient from '.';
 import { getAccountUrl, getAllAccountsUrl, numberOrString } from '../urls';
 
@@ -10,7 +10,7 @@ export default class AccountsClient {
     this._client = client;
   }
 
-  getAllAccounts = () => {
+  getAllAccounts = (): Promise<AxiosResponse<Account[]>> => {
     const url = getAllAccountsUrl();
 
     return this._client._makeRequest(
@@ -18,7 +18,7 @@ export default class AccountsClient {
     );
   };
 
-  getAccount = (accountId: numberOrString) => {
+  getAccount = (accountId: numberOrString): Promise<AxiosResponse<Account>> => {
     const url = getAccountUrl(accountId);
 
     return this._client._makeRequest(
