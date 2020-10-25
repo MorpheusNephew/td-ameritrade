@@ -1,6 +1,6 @@
-import { baseApiUrl } from '.';
+import { getBaseApiUrl } from '.';
 
-export const getInstrumentsUrl = () => `${baseApiUrl}/instruments`;
+export const getInstrumentsUrl = () => `${getBaseApiUrl()}/instruments`;
 
 export const getInstrumentUrl = (cusip: string) =>
   `${getInstrumentsUrl()}/${cusip}`;
