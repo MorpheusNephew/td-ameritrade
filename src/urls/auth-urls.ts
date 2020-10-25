@@ -1,16 +1,16 @@
-import { baseApiUrl, hostname } from '.';
+import { getBaseApiUrl, getHostname } from '.';
 
-export const getAccessTokenUrl = () => `${baseApiUrl}/oauth2/token`;
+export const getAccessTokenUrl = () => `${getBaseApiUrl()}/oauth2/token`;
 
 export interface authOptions {
   client_id: string;
   redirect_uri: string;
 }
 
-const baseAuthUrl = `https://auth.${hostname}`;
+const getBaseAuthUrl = () => `https://auth.${getHostname()}`;
 
 export const getAuthUrl = (options: authOptions): string => {
   const { redirect_uri: redirectUri, client_id: clientId } = options;
 
-  return `${baseAuthUrl}/auth?response_type=code&redirect_uri=${redirectUri}&client_id=${clientId}%40AMER.OAUTHAP`;
+  return `${getBaseAuthUrl()}/auth?response_type=code&redirect_uri=${redirectUri}&client_id=${clientId}%40AMER.OAUTHAP`;
 };

@@ -5,6 +5,6 @@ export * from './market-hours-urls';
 export * from './movers';
 export * from './order-urls';
 
-export const hostname = 'tdameritrade.com';
-export const baseApiUrl = `https://api.${hostname}/v1`;
+export const getHostname = () => 'tdameritrade.com';
+export const getBaseApiUrl = () => `https://api.${getHostname()}/v1`;
 export type numberOrString = number | string;
