@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import AuthClient from './auth-client';
 import AccountsClient from './accounts-client';
+import InstrumentsClient from './instruments-client';
 
 export interface ClientOptions {
   clientId: string;
@@ -16,6 +17,7 @@ export default class TdAmeritradeClient {
   refreshToken?: string;
   accounts: AccountsClient;
   auth: AuthClient;
+  instruments: InstrumentsClient;
 
   constructor(options: ClientOptions) {
     const { clientId, redirectUri, accessToken, refreshToken } = options;
@@ -26,6 +28,7 @@ export default class TdAmeritradeClient {
 
     this.accounts = new AccountsClient(this);
     this.auth = new AuthClient(this);
+    this.instruments = new InstrumentsClient(this);
   }
 
   _makeRequest = async <T>(
