@@ -9,7 +9,7 @@
     "url": "git+ssh://git@github.com/MorpheusNephew/TdAmeritrade.git"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "ts-node ./src/index.ts",
     "build": "rimraf ./dist && tsc"
   },
