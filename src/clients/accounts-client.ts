@@ -14,16 +14,12 @@ export default class AccountsClient {
   }
 
   getAllAccounts = (fields?: Fields[]): Promise<AxiosResponse<Account[]>> => {
-    let queryString = null;
+    const queryString = qs.stringify(
+      { fields },
+      { arrayFormat: 'comma', addQueryPrefix: true, skipNulls: true }
+    );
 
-    if (fields) {
-      queryString = qs.stringify(
-        { fields },
-        { arrayFormat: 'comma', addQueryPrefix: true }
-      );
-    }
-
-    const url = `${getAllAccountsUrl()}${queryString ? `${queryString}` : ''}`;
+    const url = `${getAllAccountsUrl()}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<Account[]>(url, authConfig)
@@ -34,18 +30,12 @@ export default class AccountsClient {
     accountId: numberOrString,
     fields?: Fields[]
   ): Promise<AxiosResponse<Account>> => {
-    let queryString = null;
+    const queryString = qs.stringify(
+      { fields },
+      { arrayFormat: 'comma', addQueryPrefix: true, skipNulls: true }
+    );
 
-    if (fields) {
-      queryString = qs.stringify(
-        { fields },
-        { addQueryPrefix: true, arrayFormat: 'comma' }
-      );
-    }
-
-    const url = `${getAccountUrl(accountId)}${
-      queryString ? `${queryString}` : ''
-    }`;
+    const url = `${getAccountUrl(accountId)}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<Account>(url, authConfig)
