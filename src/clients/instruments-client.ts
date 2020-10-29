@@ -1,5 +1,5 @@
 import { Instrument } from '@morpheusnephew/td-ameritrade-models';
-import axios, { AxiosResponse } from 'axios';
+import Axios, { AxiosResponse } from 'axios';
 import TdAmeritradeClient from '.';
 import { getInstrumentUrl, getInstrumentsUrl } from '..';
 
@@ -14,7 +14,7 @@ export default class InstrumentsClient {
     const url = getInstrumentsUrl();
 
     return this._client._makeRequest(
-      async (authConfig) => await axios.get(url, authConfig)
+      async (authConfig) => await Axios.get<Instrument[]>(url, authConfig)
     );
   };
 
@@ -22,7 +22,7 @@ export default class InstrumentsClient {
     const url = getInstrumentUrl(cusip);
 
     return this._client._makeRequest(
-      async (authConfig) => await axios.get(url, authConfig)
+      async (authConfig) => await Axios.get<Instrument>(url, authConfig)
     );
   };
 }

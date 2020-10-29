@@ -1,10 +1,10 @@
 import { createMock } from 'ts-auto-mock';
-import axios from 'axios';
+import Axios from 'axios';
 import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
 
 jest.mock('axios');
 
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+const mockedAxios = Axios as jest.Mocked<typeof Axios>;
 
 describe('TdAmeritradeClient tests', () => {
   let clientOptions: ClientOptions;

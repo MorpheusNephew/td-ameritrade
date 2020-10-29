@@ -1,18 +1,18 @@
 import { createMock } from 'ts-auto-mock';
-import axios from 'axios';
+import Axios from 'axios';
 import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
 import { Instrument } from '@morpheusnephew/td-ameritrade-models';
 
 jest.mock('axios');
 
 describe('Instruments client tests', () => {
-  let mockedAxios: jest.Mocked<typeof axios>;
+  let mockedAxios: jest.Mocked<typeof Axios>;
   let client: TdAmeritradeClient;
 
   beforeEach(() => {
     const clientOptions = createMock<ClientOptions>();
     client = new TdAmeritradeClient(clientOptions);
-    mockedAxios = axios as jest.Mocked<typeof axios>;
+    mockedAxios = Axios as jest.Mocked<typeof Axios>;
   });
 
   it('should get all instruments', async () => {
