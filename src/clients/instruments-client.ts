@@ -11,11 +11,6 @@ export type Projection =
   | 'desc-regex'
   | 'fundamental';
 
-export interface InstrumentOptions {
-  symbol: string;
-  projection: Projection;
-}
-
 export default class InstrumentsClient {
   private _client: TdAmeritradeClient;
 
@@ -24,9 +19,13 @@ export default class InstrumentsClient {
   }
 
   getInstruments = (
-    instrumentOptions: InstrumentOptions
+    symbol: string,
+    projection: Projection
   ): Promise<AxiosResponse<Instrument[]>> => {
-    const queryString = qs.stringify(instrumentOptions);
+    const queryString = qs.stringify({
+      symbol,
+      projection,
+    });
 
     const url = `${getInstrumentsUrl()}?${queryString}`;
 
