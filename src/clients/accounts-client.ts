@@ -17,12 +17,13 @@ export default class AccountsClient {
     let queryString = null;
 
     if (fields) {
-      const fieldsParam = fields.join(',');
-
-      queryString = qs.stringify({ fields: fieldsParam });
+      queryString = qs.stringify(
+        { fields },
+        { arrayFormat: 'comma', addQueryPrefix: true }
+      );
     }
 
-    const url = `${getAllAccountsUrl()}${queryString ? `?${queryString}` : ''}`;
+    const url = `${getAllAccountsUrl()}${queryString ? `${queryString}` : ''}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<Account[]>(url, authConfig)
@@ -36,13 +37,14 @@ export default class AccountsClient {
     let queryString = null;
 
     if (fields) {
-      const fieldsParam = fields.join(',');
-
-      queryString = qs.stringify({ fields: fieldsParam });
+      queryString = qs.stringify(
+        { fields },
+        { addQueryPrefix: true, arrayFormat: 'comma' }
+      );
     }
 
     const url = `${getAccountUrl(accountId)}${
-      queryString ? `?${queryString}` : ''
+      queryString ? `${queryString}` : ''
     }`;
 
     return this._client._makeRequest(

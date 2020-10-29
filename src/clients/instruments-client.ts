@@ -22,12 +22,15 @@ export default class InstrumentsClient {
     symbol: string,
     projection: Projection
   ): Promise<AxiosResponse<Instrument[]>> => {
-    const queryString = qs.stringify({
-      symbol,
-      projection,
-    });
+    const queryString = qs.stringify(
+      {
+        symbol,
+        projection,
+      },
+      { addQueryPrefix: true }
+    );
 
-    const url = `${getInstrumentsUrl()}?${queryString}`;
+    const url = `${getInstrumentsUrl()}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<Instrument[]>(url, authConfig)

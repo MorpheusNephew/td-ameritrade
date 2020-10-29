@@ -20,13 +20,15 @@ export default class MarketHoursClient {
     markets: Market[],
     date: Date
   ): Promise<AxiosResponse<MarketHours[]>> => {
-    const marketsParam = markets.join(',');
-    const queryString = qs.stringify({
-      markets: marketsParam,
-      date,
-    });
+    const queryString = qs.stringify(
+      {
+        markets,
+        date,
+      },
+      { addQueryPrefix: true, arrayFormat: 'comma' }
+    );
 
-    const url = `${getHoursForMultipleMarketsUrl()}?${queryString}`;
+    const url = `${getHoursForMultipleMarketsUrl()}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<MarketHours[]>(url, authConfig)
@@ -37,9 +39,9 @@ export default class MarketHoursClient {
     market: Market,
     date: Date
   ): Promise<AxiosResponse<MarketHours>> => {
-    const queryString = qs.stringify({ date });
+    const queryString = qs.stringify({ date }, { addQueryPrefix: true });
 
-    const url = `${getHoursForSingleMarket(market)}?${queryString}`;
+    const url = `${getHoursForSingleMarket(market)}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<MarketHours>(url, authConfig)
