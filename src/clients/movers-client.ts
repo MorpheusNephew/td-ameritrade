@@ -1,4 +1,12 @@
+import { Mover } from '@morpheusnephew/td-ameritrade-models';
+import Axios, { AxiosResponse } from 'axios';
+import qs from 'qs';
 import TdAmeritradeClient from '.';
+import { getMoversUrl, Index } from '../urls';
+
+export type Direction = 'up' | 'down';
+
+export type Change = 'value' | 'percent';
 
 export default class MoversClient {
   private _client: TdAmeritradeClient;
@@ -7,5 +15,20 @@ export default class MoversClient {
     this._client = client;
   }
 
-  getMovers = () => {};
+  getMovers = (
+    index: Index,
+    direction?: Direction,
+    change?: Change
+  ): Promise<AxiosResponse<Mover>> => {
+    const queryString = qs.stringify(
+      { direction, change },
+      { addQueryPrefix: true, skipNulls: true }
+    );
+
+    const url = `${getMoversUrl(index)}${queryString}`;
+
+    return this._client._makeRequest(
+      async (authConfig) => await Axios.get<Mover>(url, authConfig)
+    );
+  };
 }
