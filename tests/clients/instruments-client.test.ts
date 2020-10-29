@@ -2,6 +2,7 @@ import { createMock } from 'ts-auto-mock';
 import Axios from 'axios';
 import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
 import { Instrument } from '@morpheusnephew/td-ameritrade-models';
+import { InstrumentOptions } from '../../src/clients/instruments-client';
 
 jest.mock('axios');
 
@@ -22,7 +23,9 @@ describe('Instruments client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.instruments.getInstruments();
+    const instrumentOptions = createMock<InstrumentOptions>();
+
+    const result = await client.instruments.getInstruments(instrumentOptions);
 
     expect(result.data).toBe(expectedResult);
   });
