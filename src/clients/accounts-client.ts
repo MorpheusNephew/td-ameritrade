@@ -2,6 +2,7 @@ import { Account } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import TdAmeritradeClient from '.';
+import { queryStringOptions } from '../config';
 import { getAccountUrl, getAllAccountsUrl, numberOrString } from '../urls';
 
 export type Fields = 'positions' | 'orders';
@@ -14,10 +15,7 @@ export default class AccountsClient {
   }
 
   getAllAccounts = (fields?: Fields[]): Promise<AxiosResponse<Account[]>> => {
-    const queryString = qs.stringify(
-      { fields },
-      { arrayFormat: 'comma', addQueryPrefix: true, skipNulls: true }
-    );
+    const queryString = qs.stringify({ fields }, queryStringOptions);
 
     const url = `${getAllAccountsUrl()}${queryString}`;
 
@@ -30,10 +28,7 @@ export default class AccountsClient {
     accountId: numberOrString,
     fields?: Fields[]
   ): Promise<AxiosResponse<Account>> => {
-    const queryString = qs.stringify(
-      { fields },
-      { arrayFormat: 'comma', addQueryPrefix: true, skipNulls: true }
-    );
+    const queryString = qs.stringify({ fields }, queryStringOptions);
 
     const url = `${getAccountUrl(accountId)}${queryString}`;
 

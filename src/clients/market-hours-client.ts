@@ -2,6 +2,7 @@ import { MarketHours } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import TdAmeritradeClient from '.';
+import { queryStringOptions } from '../config';
 import {
   getHoursForMultipleMarketsUrl,
   getHoursForSingleMarket,
@@ -25,7 +26,7 @@ export default class MarketHoursClient {
         markets,
         date,
       },
-      { addQueryPrefix: true, arrayFormat: 'comma' }
+      queryStringOptions
     );
 
     const url = `${getHoursForMultipleMarketsUrl()}${queryString}`;

@@ -2,6 +2,7 @@ import { Mover } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import TdAmeritradeClient from '.';
+import { queryStringOptions } from '../config';
 import { getMoversUrl, Index } from '../urls';
 
 export type Direction = 'up' | 'down';
@@ -20,10 +21,7 @@ export default class MoversClient {
     direction?: Direction,
     change?: Change
   ): Promise<AxiosResponse<Mover>> => {
-    const queryString = qs.stringify(
-      { direction, change },
-      { addQueryPrefix: true, skipNulls: true }
-    );
+    const queryString = qs.stringify({ direction, change }, queryStringOptions);
 
     const url = `${getMoversUrl(index)}${queryString}`;
 

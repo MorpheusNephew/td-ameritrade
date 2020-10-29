@@ -3,6 +3,7 @@ import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import TdAmeritradeClient from '.';
 import { getInstrumentUrl, getInstrumentsUrl } from '..';
+import { queryStringOptions } from '../config';
 
 export type Projection =
   | 'symbol-search'
@@ -27,7 +28,7 @@ export default class InstrumentsClient {
         symbol,
         projection,
       },
-      { addQueryPrefix: true }
+      queryStringOptions
     );
 
     const url = `${getInstrumentsUrl()}${queryString}`;
