@@ -5,7 +5,7 @@ import { Quote } from '../../src/clients/quotes-client';
 
 jest.mock('axios');
 
-describe('{name of client} client tests', () => {
+describe('Quotes client tests', () => {
   let mockedAxios: jest.Mocked<typeof axios>;
   let client: TdAmeritradeClient;
 
