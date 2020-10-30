@@ -1,6 +1,6 @@
-import { getMarketHoursBaseUrl } from '.';
+import { getMarketDataBaseUrl } from '.';
 
 export type Index = '$COMPX' | '$DJI' | '$SPX.X';
 
 export const getMoversUrl = (index: Index) =>
-  `${getMarketHoursBaseUrl()}/${index}/movers`;
+  `${getMarketDataBaseUrl()}/${index}/movers`;
