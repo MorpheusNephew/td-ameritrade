@@ -7,4 +7,5 @@ export * from './order-urls';
 
 export const getHostname = () => 'tdameritrade.com';
 export const getBaseApiUrl = () => `https://api.${getHostname()}/v1`;
+export const getMarketDataBaseUrl = () => `${getBaseApiUrl()}/marketdata`;
 export type numberOrString = number | string;

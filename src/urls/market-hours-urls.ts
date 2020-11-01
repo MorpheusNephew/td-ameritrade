@@ -1,6 +1,4 @@
-import { getBaseApiUrl } from '.';
-
-export const getMarketDataBaseUrl = () => `${getBaseApiUrl()}/marketdata`;
+import { getMarketDataBaseUrl } from '.';
 
 export const getHoursForMultipleMarketsUrl = () =>
   `${getMarketDataBaseUrl()}/hours`;
