@@ -7,3 +7,4 @@ tests
 config.ts
 jest.config.ts
 *.json
+tests
