@@ -1,4 +1,5 @@
 import TdAmeritradeClient from '.';
+import { notImplemented } from '../errors';
 
 export default class PriceHistoryClient {
   private _client: TdAmeritradeClient;
@@ -7,5 +8,7 @@ export default class PriceHistoryClient {
     this._client = client;
   }
 
-  getPriceHistory = () => {};
+  getPriceHistory = () => {
+    notImplemented();
+  };
 }

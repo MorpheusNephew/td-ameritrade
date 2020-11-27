@@ -1,4 +1,5 @@
 import TdAmeritradeClient from '.';
+import { notImplemented } from '../errors';
 
 export default class OrdersClient {
   private _client: TdAmeritradeClient;
@@ -7,15 +8,27 @@ export default class OrdersClient {
     this._client = client;
   }
 
-  cancelOrder = () => {};
+  cancelOrder = () => {
+    notImplemented();
+  };
 
-  getOrder = () => {};
+  getOrder = () => {
+    notImplemented();
+  };
 
-  getOrdersByPath = () => {};
+  getOrdersByPath = () => {
+    notImplemented();
+  };
 
-  getOrdersByQuery = () => {};
+  getOrdersByQuery = () => {
+    notImplemented();
+  };
 
-  placeOrder = () => {};
+  placeOrder = () => {
+    notImplemented();
+  };
 
-  replaceOrder = () => {};
+  replaceOrder = () => {
+    notImplemented();
+  };
 }

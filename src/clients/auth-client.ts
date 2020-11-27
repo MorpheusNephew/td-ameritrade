@@ -15,7 +15,8 @@ export default class AuthClient {
   }
 
   authenticate = async (
-    code: string
+    code: string,
+    state?: string,
   ): Promise<AxiosResponse<AccessTokenResponse>> => {
     const body: AccessTokenRequest = {
       client_id: this._client.clientId,
@@ -23,6 +24,7 @@ export default class AuthClient {
       code: code,
       redirect_uri: this._client.redirectUri,
       access_type: 'offline',
+      state: state,
     };
 
     const response = await Axios.post<AccessTokenResponse>(

@@ -1,6 +1,6 @@
 {
   "name": "@morpheusnephew/td-ameritrade",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A client for TD Ameritrade",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,8 @@
   "scripts": {
     "test": "jest --verbose",
     "start": "ts-node ./src/index.ts",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "publishToNpm": "yarn run build && yarn publish --access public"
   },
   "author": "Jelani Jackson",
   "license": "MIT",
@@ -36,7 +37,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "@morpheusnephew/td-ameritrade-models": "0.12.1",
+    "@morpheusnephew/td-ameritrade-models": "0.12.2",
     "axios": "^0.20.0",
     "qs": "^6.9.4"
   },

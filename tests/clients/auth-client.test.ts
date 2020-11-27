@@ -15,7 +15,7 @@ describe('Auth client tests', () => {
     mockedAxios = Axios as jest.Mocked<typeof Axios>;
   });
 
-  it('should ', async () => {
+  it('should authenticate', async () => {
     const expectedResult = createMock<Token>();
 
     mockedAxios.post.mockResolvedValueOnce({

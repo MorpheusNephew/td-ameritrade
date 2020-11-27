@@ -6,4 +6,4 @@ src
 tests
 config.ts
 jest.config.ts
-tsconfig.json
+*.json
