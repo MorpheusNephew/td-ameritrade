@@ -19,11 +19,10 @@ export const getAuthUrl = (options: authOptions): string => {
     {
       response_type: 'code',
       client_id: `${client_id}%40AMER.OAUTHAP`,
-      redirect_uri,
       state,
     },
     queryStringOptions
   );
 
-  return `${getBaseAuthUrl()}/auth${params}`;
+  return `${getBaseAuthUrl()}/auth${params}&redirect_uri=${redirect_uri}`;
 };
