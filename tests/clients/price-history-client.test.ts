@@ -4,7 +4,7 @@ import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
 
 jest.mock('axios');
 
-describe('{name of client} client tests', () => {
+describe('Price history client tests', () => {
   let mockedAxios: jest.Mocked<typeof axios>;
   let client: TdAmeritradeClient;
 
@@ -14,5 +14,9 @@ describe('{name of client} client tests', () => {
     mockedAxios = axios as jest.Mocked<typeof axios>;
   });
 
-  // insert tests
+  it('should throw notImplemented when getPriceHistory is called', async () => {
+    expect(() => client.priceHistory.getPriceHistory()).toThrow(
+      'Not Implemented'
+    );
+  });
 });
