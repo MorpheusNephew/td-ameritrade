@@ -60,13 +60,13 @@ export default class OptionChainsClient {
 
   getOptionChain = (
     optionChainOptions: OptionChainOptions
-  ): Promise<AxiosResponse<any>> => {
+  ): Promise<AxiosResponse<OptionChain[]>> => {
     const queryString = qs.stringify(optionChainOptions, queryStringOptions);
 
     const url = `${getOptionChainUrl()}${queryString}`;
 
     return this._client._makeRequest(
-      async (authConfig) => await Axios.get(url, authConfig)
+      async (authConfig) => await Axios.get<OptionChain[]>(url, authConfig)
     );
   };
 }
