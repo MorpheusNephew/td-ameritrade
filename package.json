@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@morpheusnephew/td-ameritrade-models": "0.12.2",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "qs": "^6.9.4"
   },
   "keywords": [
