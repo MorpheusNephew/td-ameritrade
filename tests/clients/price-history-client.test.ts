@@ -1,7 +1,7 @@
+import { CandleList } from '@morpheusnephew/td-ameritrade-models';
 import { createMock } from 'ts-auto-mock';
 import axios from 'axios';
 import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
-import { CandleList } from '@morpheusnephew/td-ameritrade-models';
 import { PriceHistoryOptions } from '../../src/clients/price-history-client';
 
 jest.mock('axios');
