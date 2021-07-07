@@ -5,7 +5,6 @@ This project is a typescript wrapper for [TD Ameritrade's API][td-documentation]
 ## Not yet implemented
 
 - [orders-client](src/clients/orders-client.ts)
-- [price-history-client](src/clients/price-history-client.ts)
 - [saved-orders-client](src/clients/saved-orders-client.ts)
 
 ### Responses
