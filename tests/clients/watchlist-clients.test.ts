@@ -20,23 +20,23 @@ describe('{name of client} client tests', () => {
 
     const watchlistToCreate = createMock<Watchlist>();
 
-    const result = await client.watchlist.createWatchlist(
+    const { status } = await client.watchlist.createWatchlist(
       'accountId',
       watchlistToCreate
     );
 
-    expect(result.status).toBe('201');
+    expect(status).toBe('201');
   });
 
   it('should delete a watchlist', async () => {
     mockedAxios.delete.mockResolvedValueOnce({ status: '204' });
 
-    const result = await client.watchlist.deleteWatchlist(
+    const { status } = await client.watchlist.deleteWatchlist(
       'accountId',
       'watchlistId'
     );
 
-    expect(result.status).toBe('204');
+    expect(status).toBe('204');
   });
 
   it('should get a watchlist', async () => {
@@ -44,12 +44,12 @@ describe('{name of client} client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.watchlist.getWatchlist(
+    const { data } = await client.watchlist.getWatchlist(
       'accountId',
       'watchlistId'
     );
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get watchlists from multiple accounts', async () => {
@@ -57,9 +57,9 @@ describe('{name of client} client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.watchlist.getMultipleAccountsWatchlists();
+    const { data } = await client.watchlist.getMultipleAccountsWatchlists();
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get account watchlists', async () => {
@@ -67,9 +67,9 @@ describe('{name of client} client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.watchlist.getAccountWatchlists('accountId');
+    const { data } = await client.watchlist.getAccountWatchlists('accountId');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should replace a watchlist', async () => {
@@ -77,13 +77,13 @@ describe('{name of client} client tests', () => {
 
     const replacementWatchlist = createMock<Watchlist>();
 
-    const result = await client.watchlist.replaceWatchlist(
+    const { status } = await client.watchlist.replaceWatchlist(
       'accountId',
       'watchlistId',
       replacementWatchlist
     );
 
-    expect(result.status).toBe('204');
+    expect(status).toBe('204');
   });
 
   it('should update a watchlist', async () => {
@@ -91,12 +91,12 @@ describe('{name of client} client tests', () => {
 
     const updatedWatchlist = createMock<Watchlist>();
 
-    const result = await client.watchlist.updateWatchlist(
+    const { status } = await client.watchlist.updateWatchlist(
       'accountId',
       'watchlistId',
       updatedWatchlist
     );
 
-    expect(result.status).toBe('204');
+    expect(status).toBe('204');
   });
 });

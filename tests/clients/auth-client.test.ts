@@ -22,8 +22,8 @@ describe('Auth client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.auth.authenticate('code');
+    const { data } = await client.auth.authenticate('code');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

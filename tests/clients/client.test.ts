@@ -25,9 +25,9 @@ describe('TdAmeritradeClient tests', () => {
       data: value,
     });
 
-    const result = await client._makeRequest((_) => mockedAxios.get(''));
+    const { data } = await client._makeRequest((_) => mockedAxios.get(''));
 
-    expect(result.data).toBe(value);
+    expect(data).toBe(value);
     expect(client._getAuthConfig).toBeCalledTimes(1);
 
     spy.mockReset();

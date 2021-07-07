@@ -20,9 +20,9 @@ describe('Quotes client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.quotes.getQuote('My quote');
+    const { data } = await client.quotes.getQuote('My quote');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get quotes', async () => {
@@ -30,8 +30,8 @@ describe('Quotes client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.quotes.getQuotes(['my quote']);
+    const { data } = await client.quotes.getQuotes(['my quote']);
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

@@ -20,12 +20,12 @@ describe('MarketHours client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.marketHours.getMultipleMarketHours(
+    const { data } = await client.marketHours.getMultipleMarketHours(
       ['BOND', 'EQUITY'],
       new Date()
     );
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get hours for a single market', async () => {
@@ -33,8 +33,8 @@ describe('MarketHours client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.marketHours.getMarketHours('BOND', new Date());
+    const { data } = await client.marketHours.getMarketHours('BOND', new Date());
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

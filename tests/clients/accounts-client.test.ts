@@ -22,9 +22,9 @@ describe('Account client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.accounts.getAllAccounts();
+    const { data } = await client.accounts.getAllAccounts();
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get an account', async () => {
@@ -34,8 +34,8 @@ describe('Account client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.accounts.getAccount('accountId');
+    const { data } = await client.accounts.getAccount('accountId');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

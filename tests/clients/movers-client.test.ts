@@ -20,8 +20,8 @@ describe('Movers client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.movers.getMovers('$COMPX');
+    const { data } = await client.movers.getMovers('$COMPX');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });
