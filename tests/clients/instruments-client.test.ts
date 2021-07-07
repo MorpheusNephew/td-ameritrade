@@ -22,12 +22,12 @@ describe('Instruments client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.instruments.getInstruments(
+    const { data } = await client.instruments.getInstruments(
       'Hi',
       'symbol-search'
     );
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('it should get instrument', async () => {
@@ -37,8 +37,8 @@ describe('Instruments client tests', () => {
       data: expectedResult,
     });
 
-    const result = await client.instruments.getInstrument('my cusip');
+    const { data } = await client.instruments.getInstrument('my cusip');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

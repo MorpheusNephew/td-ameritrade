@@ -16,12 +16,12 @@ describe('Movers client tests', () => {
   });
 
   it('should get movers', async () => {
-    const expectedResult = createMock<Mover>();
+    const expectedResult = createMock<Mover[]>();
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.movers.getMovers('$COMPX');
+    const { data } = await client.movers.getMovers('$COMPX');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

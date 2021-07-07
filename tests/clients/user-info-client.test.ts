@@ -24,9 +24,9 @@ describe('User info client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.userInfo.getPreferences('accountId');
+    const { data } = await client.userInfo.getPreferences('accountId');
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get streamer subscription keys', async () => {
@@ -34,11 +34,11 @@ describe('User info client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.userInfo.getStreamerSubscriptionKeys([
+    const { data } = await client.userInfo.getStreamerSubscriptionKeys([
       'accountId',
     ]);
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get user principals', async () => {
@@ -46,9 +46,9 @@ describe('User info client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.userInfo.getUserPrincipals();
+    const { data } = await client.userInfo.getUserPrincipals();
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should update user preferences', async () => {
@@ -56,11 +56,11 @@ describe('User info client tests', () => {
 
     const userPreferences = createMock<Preferences>();
 
-    const result = await client.userInfo.updatePreferences(
+    const { status } = await client.userInfo.updatePreferences(
       'accountId',
       userPreferences
     );
 
-    expect(result.status).toBe('200');
+    expect(status).toBe('200');
   });
 });

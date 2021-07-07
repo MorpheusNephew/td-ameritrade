@@ -20,12 +20,12 @@ describe('Transaction history client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.transactionHistory.getTransaction(
+    const { data } = await client.transactionHistory.getTransaction(
       'accountId',
       'transactionId'
     );
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 
   it('should get transaction', async () => {
@@ -33,7 +33,7 @@ describe('Transaction history client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const result = await client.transactionHistory.getTransactions(
+    const { data } = await client.transactionHistory.getTransactions(
       'accountId',
       'ALL',
       'symbol',
@@ -41,6 +41,6 @@ describe('Transaction history client tests', () => {
       new Date()
     );
 
-    expect(result.data).toBe(expectedResult);
+    expect(data).toBe(expectedResult);
   });
 });

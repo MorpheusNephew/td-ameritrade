@@ -4,7 +4,7 @@ import qs from 'qs';
 import TdAmeritradeClient from '.';
 import { queryStringOptions } from '../config';
 import { numberOrString } from '../urls';
-import { getOptionChainUrl } from '../urls/options-url';
+import { getOptionChainUrl } from '../urls/options-urls';
 
 export interface OptionChainOptions {
   apiKey?: string;
