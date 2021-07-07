@@ -16,7 +16,7 @@ describe('Movers client tests', () => {
   });
 
   it('should get movers', async () => {
-    const expectedResult = createMock<Mover>();
+    const expectedResult = createMock<Mover[]>();
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
