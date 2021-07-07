@@ -20,13 +20,13 @@ export default class MoversClient {
     index: Index,
     direction?: Direction,
     change?: Change
-  ): Promise<AxiosResponse<Mover>> => {
+  ): Promise<AxiosResponse<Mover[]>> => {
     const queryString = qs.stringify({ direction, change }, queryStringOptions);
 
     const url = `${getMoversUrl(index)}${queryString}`;
 
     return this._client._makeRequest(
-      async (authConfig) => await Axios.get<Mover>(url, authConfig)
+      async (authConfig) => await Axios.get<Mover[]>(url, authConfig)
     );
   };
 }
