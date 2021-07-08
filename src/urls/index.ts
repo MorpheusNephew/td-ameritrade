@@ -3,7 +3,7 @@ export * from './account-urls';
 export * from './instrument-urls';
 export * from './market-hours-urls';
 export * from './movers-urls';
-export * from './order-urls';
+export * from './orders-urls';
 
 export const getHostname = () => 'tdameritrade.com';
 export const getBaseApiUrl = () => `https://api.${getHostname()}/v1`;
