@@ -5,18 +5,18 @@ info:
   repository_url: https://github.com/MorpheusNephew/td-ameritrade
 options:
   commits:
-    # filters:
-    #   Type:
-    #     - sparkles
-    #     - bug
-    #     - zap
-    #     - recycle
+    filters:
+      Type:
+        - sparkles
+        - bug
+        - zap
+        - recycle
   commit_groups:
-    # title_maps:
-    #   sparkles: Features
-    #   bug: Bug Fixes
-    #   zap: Performance Improvements
-    #   recycle: Code Refactoring
+    title_maps:
+      sparkles: Features
+      bug: Bug Fixes
+      zap: Performance Improvements
+      recycle: Code Refactoring
   header:
     pattern: "^:(\\w*)\\:\\s(.*)$"
     pattern_maps:
