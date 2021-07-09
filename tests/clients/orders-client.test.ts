@@ -1,6 +1,12 @@
+import { Order } from '@morpheusnephew/td-ameritrade-models';
 import { createMock } from 'ts-auto-mock';
 import axios from 'axios';
+import { v4 as uuid } from 'uuid';
 import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
+import {
+  IOrdersByPathOptions,
+  IOrdersByQueryOptions,
+} from '../../src/clients/orders-client';
 
 jest.mock('axios');
 
@@ -14,27 +20,72 @@ describe('Orders client tests', () => {
     mockedAxios = axios as jest.Mocked<typeof axios>;
   });
 
-  it('should throw notImplemented when cancelOrder is called', async () => {
-    expect(() => client.orders.cancelOrder()).toThrow('Not Implemented');
+  it('should cancel order', async () => {
+    const accountId = uuid();
+    const orderId = uuid();
+
+    await client.orders.cancelOrder(accountId, orderId);
+
+    expect(mockedAxios.delete).toBeCalled();
   });
 
-  it('should throw notImplemented when getOrder is called', async () => {
-    expect(() => client.orders.getOrder()).toThrow('Not Implemented');
+  it('should get order', async () => {
+    const expectedResult = createMock<Order>();
+
+    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
+
+    const accountId = uuid();
+    const orderId = uuid();
+
+    const { data } = await client.orders.getOrder(accountId, orderId);
+
+    expect(data).toBe(expectedResult);
   });
 
-  it('should throw notImplemented when getOrdersByPath is called', async () => {
-    expect(() => client.orders.getOrdersByPath()).toThrow('Not Implemented');
+  it('should get orders by path', async () => {
+    const expectedResult = createMock<Order[]>();
+
+    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
+
+    const accountId = uuid();
+    const ordersByPathOptions = createMock<IOrdersByPathOptions>();
+
+    const { data } = await client.orders.getOrdersByPath(
+      accountId,
+      ordersByPathOptions
+    );
+
+    expect(data).toBe(expectedResult);
   });
 
-  it('should throw notImplemented when getOrdersByQuery is called', async () => {
-    expect(() => client.orders.getOrdersByQuery()).toThrow('Not Implemented');
+  it('should get orders by query', async () => {
+    const expectedResult = createMock<Order[]>();
+
+    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
+
+    const ordersByQueryOptions = createMock<IOrdersByQueryOptions>();
+
+    const { data } = await client.orders.getOrdersByQuery(ordersByQueryOptions);
+
+    expect(data).toBe(expectedResult);
   });
 
-  it('should throw notImplemented when placeOrder is called', async () => {
-    expect(() => client.orders.placeOrder()).toThrow('Not Implemented');
+  it('should place order', async () => {
+    const accountId = uuid();
+    const order = createMock<Order>();
+
+    await client.orders.placeOrder(accountId, order);
+
+    expect(mockedAxios.post).toBeCalled();
   });
 
-  it('should throw notImplemented when replaceOrder is called', async () => {
-    expect(() => client.orders.replaceOrder()).toThrow('Not Implemented');
+  it('should replace order', async () => {
+    const accountId = uuid();
+    const orderId = uuid();
+    const order = createMock<Order>();
+
+    await client.orders.replaceOrder(accountId, orderId, order);
+
+    expect(mockedAxios.put).toBeCalled();
   });
 });
