@@ -12,7 +12,9 @@
     "test": "jest --verbose",
     "start": "ts-node ./src/index.ts",
     "build": "rimraf ./dist && tsc",
-    "publishToNpm": "yarn run build && yarn publish --access public"
+    "publishToNpm": "yarn run build && yarn publish --access public",
+    "postpublishToNpm": "yarn updateChangeLog",
+    "updateChangeLog": "git-chglog -o CHANGELOG.md"
   },
   "author": "Jelani Jackson",
   "license": "MIT",
