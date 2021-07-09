@@ -1,12 +1,12 @@
 import { getBaseApiUrl, numberOrString } from '.';
 import { getAccountUrl } from './account-urls';
 
-export const getAccountOrdersUrl = (accountId: numberOrString) =>
+export const getOrdersUrl = (accountId: numberOrString) =>
   `${getAccountUrl(accountId)}/orders`;
 
 export const getOrderUrl = (
   accountId: numberOrString,
   orderId: numberOrString
-) => `${getAccountOrdersUrl(accountId)}/${orderId}`;
+) => `${getOrdersUrl(accountId)}/${orderId}`;
 
 export const getLinkedAccountsOrders = () => `${getBaseApiUrl()}/orders`;
