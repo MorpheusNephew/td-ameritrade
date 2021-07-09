@@ -1,9 +1,9 @@
-import { numberOrString, getAccountUrl } from ".";
+import { numberOrString, getAccountUrl } from '.';
 
 export const getAccountSavedOrdersUrl = (accountId: numberOrString) =>
-    `${getAccountUrl(accountId)}/savedorders`;
+  `${getAccountUrl(accountId)}/savedorders`;
 
 export const getSavedOrderUrl = (
-    accountId: numberOrString,
-    savedOrderId: numberOrString
+  accountId: numberOrString,
+  savedOrderId: numberOrString
 ) => `${getAccountSavedOrdersUrl(accountId)}/${savedOrderId}`;
