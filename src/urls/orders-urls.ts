@@ -10,11 +10,3 @@ export const getOrderUrl = (
 ) => `${getAccountOrdersUrl(accountId)}/${orderId}`;
 
 export const getLinkedAccountsOrders = () => `${getBaseApiUrl()}/orders`;
-
-export const getAccountSavedOrdersUrl = (accountId: numberOrString) =>
-  `${getAccountUrl(accountId)}/savedorders`;
-
-export const getSavedOrderUrl = (
-  accountId: numberOrString,
-  savedOrderId: numberOrString
-) => `${getAccountSavedOrdersUrl(accountId)}/${savedOrderId}`;

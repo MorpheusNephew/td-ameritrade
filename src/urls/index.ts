@@ -5,6 +5,7 @@ export * from './market-hours-urls';
 export * from './movers-urls';
 export * from './orders-urls';
 export * from './price-history-urls';
+export * from './saved-orders-url';
 
 export const getHostname = () => 'tdameritrade.com';
 export const getBaseApiUrl = () => `https://api.${getHostname()}/v1`;
