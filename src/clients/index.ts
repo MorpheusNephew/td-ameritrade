@@ -61,12 +61,12 @@ export default class TdAmeritradeClient {
     this.watchlist = new WatchlistClient(this);
   }
 
-  _makeRequest = async <T>(
+  _makeRequest = <T>(
     request: (authConfig: {}) => Promise<AxiosResponse<T>>
   ): Promise<AxiosResponse<T>> => {
     const authConfig = this._getAuthConfig();
 
-    return await request(authConfig);
+    return request(authConfig);
   };
 
   _getAuthConfig = () => ({
