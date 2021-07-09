@@ -16,7 +16,7 @@ describe('Price history client tests', () => {
     mockedAxios = axios as jest.Mocked<typeof axios>;
   });
 
-  it('should throw notImplemented when getPriceHistory is called', async () => {
+  it('should get price history', async () => {
     const expectedResult = createMock<CandleList>();
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
