@@ -1,4 +1,12 @@
 
+<a name="v0.3.0"></a>
+## [v0.3.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.2.0...v0.3.0) (2021-07-10)
+
+### Features
+
+* Implemented saved orders client
+
+
 <a name="v0.2.0"></a>
 ## [v0.2.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.1.7...v0.2.0) (2021-07-09)
 
