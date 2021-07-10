@@ -1,6 +1,6 @@
 {
   "name": "@morpheusnephew/td-ameritrade",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A client for TD Ameritrade",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,7 +13,8 @@
     "start": "ts-node ./src/index.ts",
     "build": "rimraf ./dist && tsc",
     "publishToNpm": "yarn run build && yarn publish --access public",
-    "postpublishToNpm": "yarn updateChangeLog",
+    "postpublishToNpm": "yarn pushTags && yarn updateChangeLog",
+    "pushTags": "git push --tags",
     "updateChangeLog": "git-chglog -o CHANGELOG.md"
   },
   "author": "Jelani Jackson",
