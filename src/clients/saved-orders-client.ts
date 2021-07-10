@@ -1,5 +1,11 @@
+import { SavedOrder } from '@morpheusnephew/td-ameritrade-models';
+import Axios, { AxiosResponse } from 'axios';
 import TdAmeritradeClient from '.';
-import { notImplemented } from '../errors';
+import {
+  getAccountSavedOrdersUrl,
+  getSavedOrderUrl,
+  numberOrString,
+} from '../urls';
 
 export default class SavedOrdersClient {
   private _client: TdAmeritradeClient;
@@ -8,23 +14,55 @@ export default class SavedOrdersClient {
     this._client = client;
   }
 
-  createSavedOrder = () => {
-    notImplemented();
+  createSavedOrder = (accountId: numberOrString, savedOrder: SavedOrder) => {
+    const url = getAccountSavedOrdersUrl(accountId);
+
+    return this._client._makeRequest((authConfig) =>
+      Axios.post(url, savedOrder, authConfig)
+    );
   };
 
-  deleteSavedOrder = () => {
-    notImplemented();
+  deleteSavedOrder = (
+    accountId: numberOrString,
+    savedOrderId: numberOrString
+  ) => {
+    const url = getSavedOrderUrl(accountId, savedOrderId);
+
+    return this._client._makeRequest((authConfig) =>
+      Axios.delete(url, authConfig)
+    );
   };
 
-  getSavedOrder = () => {
-    notImplemented();
+  getSavedOrder = (
+    accountId: numberOrString,
+    savedOrderId: numberOrString
+  ): Promise<AxiosResponse<SavedOrder>> => {
+    const url = getSavedOrderUrl(accountId, savedOrderId);
+
+    return this._client._makeRequest((authConfig) =>
+      Axios.get(url, authConfig)
+    );
   };
 
-  getSavedOrdersByPath = () => {
-    notImplemented();
+  getSavedOrdersByPath = (
+    accountId: numberOrString
+  ): Promise<AxiosResponse<SavedOrder[]>> => {
+    const url = getAccountSavedOrdersUrl(accountId);
+
+    return this._client._makeRequest((authConfig) =>
+      Axios.get(url, authConfig)
+    );
   };
 
-  replaceSavedOrder = () => {
-    notImplemented();
+  replaceSavedOrder = (
+    accountId: numberOrString,
+    savedOrderId: numberOrString,
+    savedOrder: SavedOrder
+  ) => {
+    const url = getSavedOrderUrl(accountId, savedOrderId);
+
+    return this._client._makeRequest((authConfig) =>
+      Axios.put(url, savedOrder, authConfig)
+    );
   };
 }
