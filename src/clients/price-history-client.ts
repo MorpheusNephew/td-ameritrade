@@ -17,7 +17,7 @@ export interface PriceHistoryOptions {
   endDate?: Date;
   startDate?: Date;
   needExtendedHoursData?: boolean;
-};
+}
 
 export default class PriceHistoryClient {
   private _client: TdAmeritradeClient;
@@ -26,11 +26,16 @@ export default class PriceHistoryClient {
     this._client = client;
   }
 
-  getPriceHistory = (symbol: string, options: PriceHistoryOptions): Promise<AxiosResponse<CandleList>> => {
+  getPriceHistory = (
+    symbol: string,
+    options: PriceHistoryOptions
+  ): Promise<AxiosResponse<CandleList>> => {
     const queryString = qs.stringify(options, queryStringOptions);
 
     const url = `${getPriceHistoryUrl(symbol)}${queryString}`;
 
-    return this._client._makeRequest(async (authConfig) => await Axios.get<CandleList>(url, authConfig));
+    return this._client._makeRequest(
+      async (authConfig) => await Axios.get<CandleList>(url, authConfig)
+    );
   };
 }

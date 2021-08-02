@@ -16,7 +16,7 @@ export default class AuthClient {
 
   authenticate = async (
     code: string,
-    state?: string,
+    state?: string
   ): Promise<AxiosResponse<AccessTokenResponse>> => {
     const body: AccessTokenRequest = {
       client_id: this._client.clientId,
