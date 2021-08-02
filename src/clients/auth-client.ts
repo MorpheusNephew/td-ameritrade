@@ -1,11 +1,11 @@
+import TdAmeritradeClient from '.';
+import { getAccessTokenUrl } from '..';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import {
   Token as AccessTokenResponse,
   TokenRequest as AccessTokenRequest,
 } from '@morpheusnephew/td-ameritrade-models';
-import TdAmeritradeClient from '.';
-import { getAccessTokenUrl } from '..';
 
 export default class AuthClient {
   private _client: TdAmeritradeClient;
@@ -14,7 +14,7 @@ export default class AuthClient {
     this._client = client;
   }
 
-  authenticate = async (
+  authenticate = (
     code: string,
     state?: string
   ): Promise<AxiosResponse<AccessTokenResponse>> => {
@@ -27,6 +27,31 @@ export default class AuthClient {
       state: state,
     };
 
+    return this._request(body);
+  };
+
+  refreshAccessToken = (): Promise<AxiosResponse<AccessTokenResponse>> => {
+    const body: AccessTokenRequest = {
+      client_id: this._client.clientId,
+      grant_type: 'refresh_token',
+      refresh_token: this._client.refreshToken,
+    };
+
+    return this._request(body);
+  };
+
+  refreshRefreshToken = (): Promise<AxiosResponse<AccessTokenResponse>> => {
+    const body: AccessTokenRequest = {
+      access_type: 'offline',
+      client_id: this._client.clientId,
+      grant_type: 'refresh_token',
+      refresh_token: this._client.refreshToken,
+    };
+
+    return this._request(body);
+  };
+
+  _request = async (body: AccessTokenRequest) => {
     const response = await Axios.post<AccessTokenResponse>(
       getAccessTokenUrl(),
       qs.stringify(body),
