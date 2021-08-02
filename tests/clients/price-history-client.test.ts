@@ -21,10 +21,13 @@ describe('Price history client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const symbol = "mySymbol";
+    const symbol = 'mySymbol';
     const priceHistoryOptions = createMock<PriceHistoryOptions>();
 
-    const { data } = await client.priceHistory.getPriceHistory(symbol, priceHistoryOptions);
+    const { data } = await client.priceHistory.getPriceHistory(
+      symbol,
+      priceHistoryOptions
+    );
 
     expect(data).toBe(expectedResult);
   });

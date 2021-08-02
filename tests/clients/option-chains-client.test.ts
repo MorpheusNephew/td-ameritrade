@@ -25,7 +25,9 @@ describe('Option chains client tests', () => {
 
     const optionChainOptions = createMock<OptionChainOptions>();
 
-    const { data } = await client.optionChains.getOptionChain(optionChainOptions);
+    const { data } = await client.optionChains.getOptionChain(
+      optionChainOptions
+    );
 
     expect(data).toBe(expectedResult);
   });
