@@ -16,7 +16,7 @@
     "postpublishToNpm": "yarn pushTags && yarn updateChangeLog",
     "pushTags": "git push --tags",
     "updateChangeLog": "git-chglog -o CHANGELOG.md",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "author": "Jelani Jackson",
   "license": "MIT",
