@@ -1,3 +1,15 @@
+<a name="v0.4.0"></a>
+
+## [v0.4.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.3.2...v0.4.0) (2021-08-02)
+
+### Code Refactoring
+
+- ran prettier on test files
+
+### Features
+
+- added functionality to refresh access and refresh tokens
+
 <a name="v0.3.2"></a>
 
 ## [v0.3.2](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.3.1...v0.3.2) (2021-08-02)
