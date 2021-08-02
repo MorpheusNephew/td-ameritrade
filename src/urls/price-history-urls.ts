@@ -1,4 +1,4 @@
-import { getMarketDataBaseUrl } from ".";
+import { getMarketDataBaseUrl } from '.';
 
 export const getPriceHistoryUrl = (symbol: string) =>
-    `${getMarketDataBaseUrl()}/${symbol}/pricehistory`;
+  `${getMarketDataBaseUrl()}/${symbol}/pricehistory`;
