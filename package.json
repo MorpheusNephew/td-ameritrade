@@ -62,6 +62,6 @@
     "test": "tests"
   },
   "lint-staged": {
-    "*.{js,ts,css,md}": "prettier --write"
+    "*.{ts,md}": "prettier --write"
   }
 }
