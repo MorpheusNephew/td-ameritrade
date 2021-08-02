@@ -33,7 +33,10 @@ describe('MarketHours client tests', () => {
 
     mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
 
-    const { data } = await client.marketHours.getMarketHours('BOND', new Date());
+    const { data } = await client.marketHours.getMarketHours(
+      'BOND',
+      new Date()
+    );
 
     expect(data).toBe(expectedResult);
   });
