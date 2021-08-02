@@ -1,3 +1,11 @@
+<a name="v0.3.2"></a>
+
+## [v0.3.2](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.3.1...v0.3.2) (2021-08-02)
+
+### Bug Fixes
+
+- fixed issue which could cause husky to fail when installing this package
+
 <a name="v0.3.1"></a>
 
 ## [v0.3.1](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.3.0...v0.3.1) (2021-08-02)
