@@ -15,7 +15,8 @@
     "publishToNpm": "yarn run build && yarn publish --access public",
     "postpublishToNpm": "yarn pushTags && yarn updateChangeLog",
     "pushTags": "git push --tags",
-    "updateChangeLog": "git-chglog -o CHANGELOG.md"
+    "updateChangeLog": "git-chglog -o CHANGELOG.md",
+    "postinstall": "husky install"
   },
   "author": "Jelani Jackson",
   "license": "MIT",
@@ -30,8 +31,10 @@
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "husky": ">=6",
     "jest": "^26.6.1",
     "jest-ts-auto-mock": "^1.0.11",
+    "lint-staged": ">=10",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "ts-auto-mock": "^2.6.5",
@@ -57,5 +60,9 @@
   "homepage": "https://github.com/MorpheusNephew/TdAmeritrade#readme",
   "directories": {
     "test": "tests"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
