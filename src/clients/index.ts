@@ -1,6 +1,5 @@
-import { AxiosResponse } from 'axios';
-import AuthClient from './auth-client';
 import AccountsClient from './accounts-client';
+import AuthClient from './auth-client';
 import InstrumentsClient from './instruments-client';
 import MarketHoursClient from './market-hours-client';
 import MoversClient from './movers-client';
@@ -12,17 +11,18 @@ import SavedOrdersClient from './saved-orders-client';
 import TransactionHistoryClient from './transaction-history-client';
 import UserInfoClient from './user-info-client';
 import WatchlistClient from './watchlist-client';
+import { AxiosResponse } from 'axios';
 
 export interface ClientOptions {
   clientId: string;
-  redirectUri: string;
+  redirectUri?: string;
   accessToken?: string;
   refreshToken?: string;
 }
 
 export default class TdAmeritradeClient {
   clientId: string;
-  redirectUri: string;
+  redirectUri?: string;
   accessToken?: string;
   refreshToken?: string;
   accounts: AccountsClient;
@@ -42,7 +42,7 @@ export default class TdAmeritradeClient {
   constructor(options: ClientOptions) {
     const { clientId, redirectUri, accessToken, refreshToken } = options;
     this.clientId = clientId;
-    this.redirectUri = encodeURI(redirectUri);
+    this.redirectUri = redirectUri ? encodeURI(redirectUri) : undefined;
     this.accessToken = accessToken;
     this.refreshToken = refreshToken;
 
