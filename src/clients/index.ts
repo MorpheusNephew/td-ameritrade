@@ -15,7 +15,7 @@ import { AxiosResponse } from 'axios';
 
 export interface ClientOptions {
   clientId: string;
-  redirectUri?: string;
+  redirectUri?: string; // Made optional due to only being needed for authorization code flow
   accessToken?: string;
   refreshToken?: string;
 }
