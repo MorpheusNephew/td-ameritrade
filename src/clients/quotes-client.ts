@@ -49,8 +49,19 @@ export default class QuotesClient {
 
     const url = `${getQuotesUrl()}${queryString}`;
 
-    return this._client._makeRequest(
-      async (authConfig) => await Axios.get<Quote[]>(url, authConfig)
-    );
+    return this._client
+      ._makeRequest(
+        async (authConfig) => await Axios.get<Quote[]>(url, authConfig)
+      )
+      .then((result: AxiosResponse<Quote[]>) => {
+        const stocks = [] as Quote[];
+        Object.keys(result.data).map((symbol: any) => {
+          stocks.push(result.data[symbol]);
+        });
+
+        return {
+          data: stocks,
+        } as AxiosResponse<Quote[]>;
+      });
   };
 }

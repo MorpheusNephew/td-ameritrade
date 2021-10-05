@@ -34,14 +34,30 @@ describe('Quotes client tests', () => {
   });
 
   it('should get quotes', async () => {
-    const expectedResult = createMock<Quote[]>();
+    const expectedResult = createMock<Quote[]>([
+      {
+        symbol: 'AMC',
+      } as any,
+      {
+        symbol: 'GME',
+      } as any,
+    ]);
 
     mockedAxios.get.mockImplementationOnce((url: string) => {
       if (
         url ===
         'https://api.tdameritrade.com/v1/marketdata/quotes?symbol=my%20quote'
       ) {
-        return Promise.resolve({ data: expectedResult });
+        return Promise.resolve({ data:  {
+
+        AMC: {
+          symbol: 'AMC',
+        },
+        GME: {
+          symbol: 'GME',
+        }
+        }
+        });
       } else {
         return Promise.resolve({ data: `unknown url: ${url}` });
       }
@@ -49,6 +65,6 @@ describe('Quotes client tests', () => {
 
     const { data } = await client.quotes.getQuotes(['my quote']);
 
-    expect(data).toEqual([]);
+    expect(data).toEqual(expectedResult);
   });
 });
