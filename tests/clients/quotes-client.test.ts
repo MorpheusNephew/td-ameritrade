@@ -18,7 +18,15 @@ describe('Quotes client tests', () => {
   it('should get quote', async () => {
     const expectedResult = createMock<Quote>();
 
-    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
+    mockedAxios.get.mockImplementationOnce((url: string) => {
+      if (
+        url === 'https://api.tdameritrade.com/v1/marketdata/My quote/quotes'
+      ) {
+        return Promise.resolve({ data: expectedResult });
+      } else {
+        return Promise.resolve({ data: `unknown url: ${url}` });
+      }
+    });
 
     const { data } = await client.quotes.getQuote('My quote');
 
@@ -28,10 +36,19 @@ describe('Quotes client tests', () => {
   it('should get quotes', async () => {
     const expectedResult = createMock<Quote[]>();
 
-    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
+    mockedAxios.get.mockImplementationOnce((url: string) => {
+      if (
+        url ===
+        'https://api.tdameritrade.com/v1/marketdata/quotes?symbol=my%20quote'
+      ) {
+        return Promise.resolve({ data: expectedResult });
+      } else {
+        return Promise.resolve({ data: `unknown url: ${url}` });
+      }
+    });
 
     const { data } = await client.quotes.getQuotes(['my quote']);
 
-    expect(data).toBe(expectedResult);
+    expect(data).toEqual([]);
   });
 });
