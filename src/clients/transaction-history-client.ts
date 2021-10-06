@@ -43,8 +43,8 @@ export default class TransactionHistoryClient {
     accountId: numberOrString,
     type: TransactionType,
     symbol: string,
-    startDate: Date,
-    endDate: Date
+    startDate: string,
+    endDate: string
   ): Promise<AxiosResponse<Transaction[]>> => {
     const queryString = qs.stringify(
       { type, symbol, startDate, endDate },
