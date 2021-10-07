@@ -6,7 +6,7 @@ import { queryStringOptions } from '../config';
 import { getPriceHistoryUrl } from '../urls/price-history-urls';
 
 export type PeriodType = 'day' | 'month' | 'year' | 'ytd';
-export type FrequencyType = '';
+export type FrequencyType = 'minute' | 'daily' | 'weekly' | 'monthly';
 
 export interface PriceHistoryOptions {
   apiKey?: string;
