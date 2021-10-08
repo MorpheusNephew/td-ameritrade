@@ -47,7 +47,7 @@ export default class QuotesClient {
   ): Promise<AxiosResponse<Quote[]>> => {
     const queryString = qs.stringify({ symbol, apiKey }, queryStringOptions);
 
-    const url = `${getQuotesUrl}${queryString}`;
+    const url = `${getQuotesUrl()}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<Quote[]>(url, authConfig)
