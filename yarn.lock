@@ -561,10 +561,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@morpheusnephew/td-ameritrade-models@0.12.7":
-  version "0.12.7"
-  resolved "https://registry.yarnpkg.com/@morpheusnephew/td-ameritrade-models/-/td-ameritrade-models-0.12.7.tgz#15d9d098b4da35632334ec6a7fee6d9dc0fadfb4"
-  integrity sha512-uxInctCxAFfS3o7YRu0X2ABTZVDkW1IJobH7dXLgFTsuu+CdqAot4YV/ygqURpjPgN5i2R9FCJme5h3NxnP8DA==
+"@morpheusnephew/td-ameritrade-models@0.12.8":
+  version "0.12.8"
+  resolved "https://registry.yarnpkg.com/@morpheusnephew/td-ameritrade-models/-/td-ameritrade-models-0.12.8.tgz#956927f688f9dcc22799282c9a2bff4167daaf93"
+  integrity sha512-d4ft2pY+gOQGOBrKAoK28WCiP3sOQ0+GFUi/HLTPAgR/hEtkY+xLxuY4OR3Ad3GO7FjcfcZ4vN47s33qqpVigQ==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
