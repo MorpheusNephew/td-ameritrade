@@ -1,3 +1,7 @@
+<a name="v0.4.5"></a>
+
+## [v0.4.5](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.4...v0.4.5) (2021-10-09)
+
 <a name="v0.4.4"></a>
 
 ## [v0.4.4](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.3...v0.4.4) (2021-10-09)
