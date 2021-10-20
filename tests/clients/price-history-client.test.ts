@@ -18,7 +18,9 @@ describe('Price history client tests', () => {
 
   it('should get price history', async () => {
     const symbol = 'OSTK';
-    const priceHistoryOptions = createMock<PriceHistoryOptions>();
+    const priceHistoryOptions = createMock<PriceHistoryOptions>({
+      periodType: 'day',
+    });
     const expectedResult = createMock<CandleList>({
       candles: [
         {
