@@ -14,8 +14,8 @@ export interface PriceHistoryOptions {
   period?: number;
   frequencyType?: FrequencyType;
   frequency?: number;
-  endDate?: Date;
-  startDate?: Date;
+  endDate?: number;
+  startDate?: number;
   needExtendedHoursData?: boolean;
 }
 
