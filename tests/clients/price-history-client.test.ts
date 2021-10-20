@@ -17,18 +17,53 @@ describe('Price history client tests', () => {
   });
 
   it('should get price history', async () => {
-    const expectedResult = createMock<CandleList>();
-
-    mockedAxios.get.mockResolvedValueOnce({ data: expectedResult });
-
-    const symbol = 'mySymbol';
+    const symbol = 'OSTK';
     const priceHistoryOptions = createMock<PriceHistoryOptions>();
+    const expectedResult = createMock<CandleList>({
+      candles: [
+        {
+          open: 70.95,
+          high: 71.7,
+          low: 69.1,
+          close: 69.39,
+          volume: 608751,
+          datetime: 1631595600000,
+        },
+      ],
+      symbol: 'OSTK',
+      empty: false,
+    });
+
+    mockedAxios.get.mockImplementationOnce((url: string) => {
+      if (
+        url === 'https://api.tdameritrade.com/v1/marketdata/OSTK/pricehistory'
+      ) {
+        return Promise.resolve({
+          data: {
+            candles: [
+              {
+                open: 70.95,
+                high: 71.7,
+                low: 69.1,
+                close: 69.39,
+                volume: 608751,
+                datetime: 1631595600000,
+              },
+            ],
+            symbol: 'OSTK',
+            empty: false,
+          },
+        });
+      } else {
+        return Promise.resolve({ data: `unknown url: ${url}` });
+      }
+    });
 
     const { data } = await client.priceHistory.getPriceHistory(
       symbol,
       priceHistoryOptions
     );
 
-    expect(data).toBe(expectedResult);
+    expect(data).toEqual(expectedResult);
   });
 });
