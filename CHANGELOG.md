@@ -1,3 +1,24 @@
+<a name="v0.4.5"></a>
+
+## [v0.4.5](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.4...v0.4.5) (2021-10-09)
+
+<a name="v0.4.4"></a>
+
+## [v0.4.4](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.3...v0.4.4) (2021-10-09)
+
+<a name="v0.4.3"></a>
+
+## [v0.4.3](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.2...v0.4.3) (2021-10-09)
+
+### Bug Fixes
+
+- Fixed price history frequency type not being set
+- Fixed transaction history date range request params to take in strings
+- Fixed get quotes response
+- Fixed bug in get quote logic not calling function to get quote url
+- Updated ts-jest to fix TypeError when running tests
+- Updating es-lint to fix a potential security issue
+
 <a name="v0.4.2"></a>
 
 ## [v0.4.2](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.1...v0.4.2) (2021-09-17)

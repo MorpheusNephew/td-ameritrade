@@ -1,6 +1,6 @@
 {
   "name": "@morpheusnephew/td-ameritrade",
-  "version": "0.4.2",
+  "version": "0.4.5",
   "description": "A client for TD Ameritrade",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -45,7 +45,7 @@
     "uuid": "^8.3.2"
   },
   "dependencies": {
-    "@morpheusnephew/td-ameritrade-models": "0.12.5",
+    "@morpheusnephew/td-ameritrade-models": "0.12.8",
     "axios": "^0.21.1",
     "qs": "^6.9.4"
   },
