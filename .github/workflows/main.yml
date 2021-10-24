@@ -36,6 +36,3 @@ jobs:
 
       - name: Run Jest
         uses: stefanoeb/jest-action@1.0.4
-        with:
-          # Args to jest
-          jestArgs: '--ci'
