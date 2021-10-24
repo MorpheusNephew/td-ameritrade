@@ -32,8 +32,7 @@ export default class PriceHistoryClient {
   ): Promise<AxiosResponse<CandleList>> => {
     const queryString = qs.stringify(options, queryStringOptions);
 
-    // testing that failure occurs in github
-    const url = `${getPriceHistoryUrl(symbol)}${'hello'}`;
+    const url = `${getPriceHistoryUrl(symbol)}${queryString}`;
 
     return this._client._makeRequest(
       async (authConfig) => await Axios.get<CandleList>(url, authConfig)
