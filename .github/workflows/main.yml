@@ -31,8 +31,11 @@ jobs:
           # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 12.x
 
-      - name: Run Jest
-        uses: stefanoeb/jest-action@1.0.4
-        with:
-          # Args to jest
-          jestArgs: --ci
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Jest
+        run: yarn jest --ci

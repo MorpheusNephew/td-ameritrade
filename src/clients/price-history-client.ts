@@ -1,9 +1,9 @@
+import { queryStringOptions } from '../config';
+import { getPriceHistoryUrl } from '../urls/price-history-urls';
+import TdAmeritradeClient from '.';
 import { CandleList } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
-import TdAmeritradeClient from '.';
-import { queryStringOptions } from '../config';
-import { getPriceHistoryUrl } from '../urls/price-history-urls';
 
 export type PeriodType = 'day' | 'month' | 'year' | 'ytd';
 export type FrequencyType = 'minute' | 'daily' | 'weekly' | 'monthly';
