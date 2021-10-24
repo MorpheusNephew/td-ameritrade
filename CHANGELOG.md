@@ -1,3 +1,11 @@
+<a name="v0.4.6"></a>
+
+## [v0.4.6](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.5...v0.4.6) (2021-10-24)
+
+### Bug Fixes
+
+- Fixed price history client's get transactions date parameters to represent milliseconds since epoch
+
 <a name="v0.4.5"></a>
 
 ## [v0.4.5](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.4...v0.4.5) (2021-10-09)
