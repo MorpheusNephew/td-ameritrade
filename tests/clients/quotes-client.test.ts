@@ -16,21 +16,35 @@ describe('Quotes client tests', () => {
   });
 
   it('should get quote', async () => {
-    const expectedResult = createMock<Quote>();
+    const expectedResult = createMock<Quote>(
+      Object({
+        symbol: 'AMC',
+      })
+    );
 
     mockedAxios.get.mockImplementationOnce((url: string) => {
-      if (
-        url === 'https://api.tdameritrade.com/v1/marketdata/My quote/quotes'
-      ) {
-        return Promise.resolve({ data: expectedResult });
+      if (url === 'https://api.tdameritrade.com/v1/marketdata/AMC/quotes') {
+        return Promise.resolve({
+          data: Object({
+            AMC: Object({
+              symbol: 'AMC',
+              netPercentChangeInDouble: 0,
+              markChangeInDouble: 0,
+              markPercentChangeInDouble: 0,
+              regularMarketPercentChangeInDouble: 0,
+              delayed: false,
+              realtimeEntitled: false,
+            }),
+          }),
+        });
       } else {
         return Promise.resolve({ data: `unknown url: ${url}` });
       }
     });
 
-    const { data } = await client.quotes.getQuote('My quote');
+    const { data } = await client.quotes.getQuote('AMC');
 
-    expect(data).toBe(expectedResult);
+    expect(data).toEqual(expectedResult);
   });
 
   it('should get quotes', async () => {
@@ -48,15 +62,15 @@ describe('Quotes client tests', () => {
         url ===
         'https://api.tdameritrade.com/v1/marketdata/quotes?symbol=my%20quote'
       ) {
-        return Promise.resolve({ data:  {
-
-        AMC: {
-          symbol: 'AMC',
-        },
-        GME: {
-          symbol: 'GME',
-        }
-        }
+        return Promise.resolve({
+          data: {
+            AMC: {
+              symbol: 'AMC',
+            },
+            GME: {
+              symbol: 'GME',
+            },
+          },
         });
       } else {
         return Promise.resolve({ data: `unknown url: ${url}` });
