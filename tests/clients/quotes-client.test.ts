@@ -16,17 +16,15 @@ describe('Quotes client tests', () => {
   });
 
   it('should get quote', async () => {
-    const expectedResult = createMock<Quote>(
-      Object({
-        symbol: 'AMC',
-      })
-    );
+    const expectedResult = createMock<Quote>({
+      symbol: 'AMC',
+    });
 
     mockedAxios.get.mockImplementationOnce((url: string) => {
       if (url === 'https://api.tdameritrade.com/v1/marketdata/AMC/quotes') {
         return Promise.resolve({
-          data: Object({
-            AMC: Object({
+          data: {
+            AMC: {
               symbol: 'AMC',
               netPercentChangeInDouble: 0,
               markChangeInDouble: 0,
@@ -34,8 +32,8 @@ describe('Quotes client tests', () => {
               regularMarketPercentChangeInDouble: 0,
               delayed: false,
               realtimeEntitled: false,
-            }),
-          }),
+            },
+          },
         });
       } else {
         return Promise.resolve({ data: `unknown url: ${url}` });
