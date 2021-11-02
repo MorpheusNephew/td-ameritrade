@@ -21,6 +21,8 @@ export type Quote = FutureQuote &
   MutualFundQuote &
   OptionQuote;
 
+export type QuoteResponse = Record<string, Quote>;
+
 export default class QuotesClient {
   private _client: TdAmeritradeClient;
 
@@ -31,49 +33,26 @@ export default class QuotesClient {
   getQuote = (
     symbol: string,
     apiKey?: string
-  ): Promise<AxiosResponse<Quote>> => {
+  ): Promise<AxiosResponse<QuoteResponse>> => {
     const queryString = qs.stringify({ apiKey }, queryStringOptions);
 
     const url = `${getQuoteUrl(symbol)}${queryString}`;
 
     return this._client._makeRequest(
-      async (authConfig) =>
-        await Axios.get<Quote>(url, authConfig).then(
-          (result: AxiosResponse<any>) => {
-            let quote = {} as Quote;
-            Object.keys(result.data).map((symbol: string) => {
-              quote = result.data[symbol] as Quote;
-            });
-
-            return {
-              data: quote,
-            } as AxiosResponse<Quote>;
-          }
-        )
+      async (authConfig) => await Axios.get<QuoteResponse>(url, authConfig)
     );
   };
 
   getQuotes = (
     symbol: string[],
     apiKey?: string
-  ): Promise<AxiosResponse<Quote[]>> => {
+  ): Promise<AxiosResponse<QuoteResponse>> => {
     const queryString = qs.stringify({ symbol, apiKey }, queryStringOptions);
 
     const url = `${getQuotesUrl()}${queryString}`;
 
-    return this._client
-      ._makeRequest(
-        async (authConfig) => await Axios.get<Quote[]>(url, authConfig)
-      )
-      .then((result: AxiosResponse<Quote[]>) => {
-        const stocks = [] as Quote[];
-        Object.keys(result.data).map((symbol: any) => {
-          stocks.push(result.data[symbol]);
-        });
-
-        return {
-          data: stocks,
-        } as AxiosResponse<Quote[]>;
-      });
+    return this._client._makeRequest(
+      async (authConfig) => await Axios.get<QuoteResponse>(url, authConfig)
+    );
   };
 }
