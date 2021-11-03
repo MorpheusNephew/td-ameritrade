@@ -54,7 +54,7 @@ describe('Quotes client tests', () => {
     mockedAxios.get.mockImplementationOnce((url: string) => {
       if (
         url ===
-        'https://api.tdameritrade.com/v1/marketdata/quotes?symbol=my%20quote'
+        'https://api.tdameritrade.com/v1/marketdata/quotes?symbol=AMC%2CGME'
       ) {
         return Promise.resolve({
           data: {
@@ -71,7 +71,7 @@ describe('Quotes client tests', () => {
       }
     });
 
-    const { data } = await client.quotes.getQuotes(['my quote']);
+    const { data } = await client.quotes.getQuotes(['AMC,GME']);
 
     expect(data).toEqual(expectedResult);
   });
