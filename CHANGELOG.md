@@ -1,3 +1,11 @@
+<a name="v0.4.7"></a>
+
+## [v0.4.7](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.6...v0.4.7) (2021-11-02)
+
+### Bug Fixes
+
+- Updated quote endpoint to return quote record
+
 <a name="v0.4.6"></a>
 
 ## [v0.4.6](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.5...v0.4.6) (2021-10-24)
