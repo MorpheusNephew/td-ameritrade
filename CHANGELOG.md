@@ -1,3 +1,11 @@
+<a name="v0.4.8"></a>
+
+## [v0.4.8](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.7...v0.4.8) (2021-12-04)
+
+### Bug Fixes
+
+- Fixes account type response for account requests
+
 <a name="v0.4.7"></a>
 
 ## [v0.4.7](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.6...v0.4.7) (2021-11-02)
@@ -5,6 +13,7 @@
 ### Bug Fixes
 
 - Updated quote endpoint to return quote record
+- FUpdated quote endpoint to return quote record
 
 <a name="v0.4.6"></a>
 
