@@ -1,8 +1,8 @@
+import { queryStringOptions } from '../config';
+import TdAmeritradeClient from '.';
 import { Order, OrderStatus } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
-import TdAmeritradeClient from '.';
-import { queryStringOptions } from '../config';
 import {
   getLinkedAccountsOrders,
   getOrdersUrl,
@@ -11,7 +11,7 @@ import {
 } from '../urls';
 
 export interface IOrdersByPathOptions {
-  maxResults: number;
+  maxResults?: number;
   fromEnteredTime?: string;
   toEnteredTime?: string;
   status?: OrderStatus;
