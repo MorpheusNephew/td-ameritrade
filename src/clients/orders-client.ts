@@ -1,4 +1,4 @@
-import { Order } from '@morpheusnephew/td-ameritrade-models';
+import { Order, OrderStatus } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import TdAmeritradeClient from '.';
@@ -12,6 +12,9 @@ import {
 
 export interface IOrdersByPathOptions {
   maxResults: number;
+  fromEnteredTime?: string;
+  toEnteredTime?: string;
+  status?: OrderStatus;
 }
 
 export type IOrdersByQueryOptions = IOrdersByPathOptions & {
