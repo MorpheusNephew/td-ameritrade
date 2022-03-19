@@ -15,7 +15,7 @@ module.exports = {
         assets: ['CHANGELOG.md'],
       },
     ],
-    ['@semantic-release/npm', { pkgRoot: 'dist/' }],
+    ['@semantic-release/npm', { pkgRoot: 'dist' }],
     ['@semantic-release/github', { failComment: false }],
   ],
   preset: 'conventionalcommits',
