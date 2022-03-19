@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.0...v1.0.1) (2022-03-19)
+
+
+### Fix
+
+* Removed postinstall step for installing husky ([47c46b2](https://github.com/MorpheusNephew/td-ameritrade/commit/47c46b245f27afbd454294ab9874ec47508ffb53))
+
 # [1.0.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.5.0...v1.0.0) (2022-03-19)
 
 ### Breaking
