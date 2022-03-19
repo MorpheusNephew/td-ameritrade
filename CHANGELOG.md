@@ -1,3 +1,9 @@
+### [0.4.13](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.12...v0.4.13) (2022-03-19)
+
+### Bug Fixes
+
+- Fixed removal of code ([15017fb](https://github.com/MorpheusNephew/td-ameritrade/commit/15017fbfecf5cff67ba118c428f8cc404160c5e8))
+
 ### [0.4.12](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.11...v0.4.12) (2022-03-19)
 
 ### Bug Fixes
