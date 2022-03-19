@@ -18,4 +18,5 @@ module.exports = {
     ['@semantic-release/npm', { pkgRoot: 'dist' }],
     ['@semantic-release/github', { failComment: false }],
   ],
+  preset: 'eslint',
 };
