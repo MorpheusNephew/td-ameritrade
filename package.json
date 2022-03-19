@@ -39,6 +39,7 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "semantic-release": "^19.0.2",
+    "semantic-release-conventional-commits": "^3.0.0",
     "ts-auto-mock": "^2.6.5",
     "ts-jest": "^27.0.1",
     "ts-node": "^9.0.0",
