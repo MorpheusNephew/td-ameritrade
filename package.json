@@ -12,7 +12,6 @@
     "test": "jest --verbose",
     "start": "ts-node ./src/index.ts",
     "build": "rimraf ./dist && tsc && copyfiles package.json dist/",
-    "postinstall": "husky install",
     "semantic-release": "semantic-release"
   },
   "author": "Jelani Jackson",
