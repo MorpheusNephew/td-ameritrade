@@ -2,8 +2,8 @@
   "name": "@morpheusnephew/td-ameritrade",
   "version": "0.0.0-development",
   "description": "A client for TD Ameritrade",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/MorpheusNephew/td-ameritrade.git"
