@@ -1,3 +1,9 @@
+### [0.4.12](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.11...v0.4.12) (2022-03-19)
+
+### Bug Fixes
+
+- semver deployment ([a69a656](https://github.com/MorpheusNephew/td-ameritrade/commit/a69a6568e1e7237b6da2ab6897e7c8d911b490d5))
+
 ### [0.4.11](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.10...v0.4.11) (2022-03-19)
 
 ### Bug Fixes
