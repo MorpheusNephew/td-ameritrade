@@ -1,3 +1,9 @@
+### [0.4.14](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.13...v0.4.14) (2022-03-19)
+
+### Bug Fixes
+
+- removed prepare step for semantic-release ([fda7993](https://github.com/MorpheusNephew/td-ameritrade/commit/fda79935653984a83c9d48b497700d0a7ce24c3e))
+
 ### [0.4.13](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.12...v0.4.13) (2022-03-19)
 
 ### Bug Fixes
