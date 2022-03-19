@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MorpheusNephew/TdAmeritrade.git"
+    "url": "https://github.com/MorpheusNephew/td-ameritrade.git"
   },
   "scripts": {
     "test": "jest --verbose",
@@ -60,9 +60,9 @@
     "Ameritrade"
   ],
   "bugs": {
-    "url": "https://github.com/MorpheusNephew/TdAmeritrade/issues"
+    "url": "https://github.com/MorpheusNephew/td-ameritrade/issues"
   },
-  "homepage": "https://github.com/MorpheusNephew/TdAmeritrade#readme",
+  "homepage": "https://github.com/MorpheusNephew/td-ameritrade#readme",
   "directories": {
     "test": "tests"
   },
