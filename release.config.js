@@ -15,7 +15,8 @@ module.exports = {
         assets: ['CHANGELOG.md'],
       },
     ],
-    '@semantic-release/npm',
+    ['@semantic-release/npm', { failComment: false }],
     '@semantic-release/github',
   ],
+  preset: 'conventionalcommits',
 };
