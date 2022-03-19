@@ -1,3 +1,9 @@
+## [0.5.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.14...v0.5.0) (2022-03-19)
+
+### Features
+
+- updated how package is consumed BREAKING CHANGE ([0a03ad2](https://github.com/MorpheusNephew/td-ameritrade/commit/0a03ad2e4e3d5458c2512792efea9848048f2e12))
+
 ### [0.4.14](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.13...v0.4.14) (2022-03-19)
 
 ### Bug Fixes
