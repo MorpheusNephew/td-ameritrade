@@ -1,8 +1,12 @@
 module.exports = {
   branches: ['main'],
+  analyzeCommits: 'semantic-release-conventional-commits',
   plugins: [
-    '@semantic-release/commit-analyzer',
-    '@semantic-release/release-notes-generator',
+    ['@semantic-release/commit-analyzer', { preset: 'conventionalcommits' }],
+    [
+      '@semantic-release/release-notes-generator',
+      { preset: 'conventionalcommits' },
+    ],
     [
       '@semantic-release/changelog',
       {
@@ -18,5 +22,4 @@ module.exports = {
     ['@semantic-release/npm', { pkgRoot: 'dist' }],
     ['@semantic-release/github', { failComment: false }],
   ],
-  preset: 'conventionalcommits',
 };
