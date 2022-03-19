@@ -1,3 +1,9 @@
+### [0.4.11](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.10...v0.4.11) (2022-03-19)
+
+### Bug Fixes
+
+- Package update ([c011764](https://github.com/MorpheusNephew/td-ameritrade/commit/c0117644401df1361916db0fd614444a67340858))
+
 <a name="v0.4.10"></a>
 
 ## [v0.4.10](https://github.com/MorpheusNephew/td-ameritrade/compare/v0.4.9...v0.4.10) (2022-02-03)
