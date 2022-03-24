@@ -1,3 +1,15 @@
+## [1.0.2](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.1...v1.0.2) (2022-03-24)
+
+
+### Docs
+
+* Added contributing file ([baa7aea](https://github.com/MorpheusNephew/td-ameritrade/commit/baa7aea51ac637925a5e2a721a47b08bf53a590b))
+* Added documentation for how to use this library ([cb96748](https://github.com/MorpheusNephew/td-ameritrade/commit/cb96748bbdde8ac799b8a9b7732dfb827ebc7fef))
+
+### Fix
+
+* Adding README to dist ([34438d8](https://github.com/MorpheusNephew/td-ameritrade/commit/34438d87534a7509a96af66ef969e4347416792c))
+
 ## [1.0.1](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.0...v1.0.1) (2022-03-19)
 
 
