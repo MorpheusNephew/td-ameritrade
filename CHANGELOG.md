@@ -1,3 +1,18 @@
+## [1.0.3](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.2...v1.0.3) (2022-05-29)
+
+
+### fix
+
+* Updated async dependency ([aeee410](https://github.com/MorpheusNephew/td-ameritrade/commit/aeee4107e5d9b0b67299062ae1ef6bbb896491a3))
+
+### Fix
+
+* Updated td ameritrade models ([0c8f859](https://github.com/MorpheusNephew/td-ameritrade/commit/0c8f859284c105ca392e827c85433ec5770dd904))
+
+### Upgrade
+
+* fixing security vulnerability in minimist ([83ccc19](https://github.com/MorpheusNephew/td-ameritrade/commit/83ccc19856e74cb4f4f4758c5ac3798f729cb351))
+
 ## [1.0.2](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.1...v1.0.2) (2022-03-24)
 
 
