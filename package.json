@@ -37,7 +37,7 @@
     "lint-staged": ">=10",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
-    "semantic-release": "^19.0.2",
+    "semantic-release": "^19.0.3",
     "semantic-release-conventional-commits": "^3.0.0",
     "ts-auto-mock": "^2.6.5",
     "ts-jest": "^27.0.1",
@@ -47,7 +47,7 @@
     "uuid": "^8.3.2"
   },
   "dependencies": {
-    "@morpheusnephew/td-ameritrade-models": "^0.12.14",
+    "@morpheusnephew/td-ameritrade-models": "^0.12.15",
     "axios": "^0.21.1",
     "qs": "^6.9.4"
   },

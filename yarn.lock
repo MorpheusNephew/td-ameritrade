@@ -576,10 +576,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@morpheusnephew/td-ameritrade-models@^0.12.14":
-  version "0.12.14"
-  resolved "https://registry.yarnpkg.com/@morpheusnephew/td-ameritrade-models/-/td-ameritrade-models-0.12.14.tgz#1780ce0404e4ec00a9148cb0ec5035d0193ab8cf"
-  integrity sha512-3twuxhOGCQjgigEU/Kindmu0ud0ilOqPfQ46nz+eMoStGm6EdQm0FVj4Gsjx94W7eGD+LzRibWJ2L9jD409JVA==
+"@morpheusnephew/td-ameritrade-models@^0.12.15":
+  version "0.12.15"
+  resolved "https://registry.yarnpkg.com/@morpheusnephew/td-ameritrade-models/-/td-ameritrade-models-0.12.15.tgz#9df708cfe0e5b7c53a5ae642adf354e13ca0f0c4"
+  integrity sha512-xS8ctIVPrE13RmcGiVpLT21R7y9ux6gMjU6dYH/OeHoAJkCQwnGUkgPWGYDpgdP29oAtbyOOHreZsYAY9S7KvA==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -5655,7 +5655,7 @@ semantic-release-conventional-commits@^3.0.0:
   dependencies:
     conventional-commits-parser "^3.0.0"
 
-semantic-release@^19.0.2:
+semantic-release@^19.0.3:
   version "19.0.3"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-19.0.3.tgz#9291053ad9890052f28e7c5921d4741530d516fd"
   integrity sha512-HaFbydST1cDKZHuFZxB8DTrBLJVK/AnDExpK0s3EqLIAAUAHUgnd+VSJCUtTYQKkAkauL8G9CucODrVCc7BuAA==
