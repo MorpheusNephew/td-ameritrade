@@ -1,3 +1,18 @@
+## [1.1.1](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.1.0...v1.1.1) (2022-07-23)
+
+
+### chore
+
+* removed unused package ([275150f](https://github.com/MorpheusNephew/td-ameritrade/commit/275150f09e8f652dcb71d00b42471cfc96985feb))
+
+### docs
+
+* Updated contributing docs to state conventional commit convention ([5e41809](https://github.com/MorpheusNephew/td-ameritrade/commit/5e418091d60036d093ab4090b250415f94a1c2ed))
+
+### fix
+
+* Updated readme example to show client id isn't needed to get accounts ([7ede33f](https://github.com/MorpheusNephew/td-ameritrade/commit/7ede33f2e4f5cf26d72a842695a3692ae3972f54))
+
 # [1.1.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.4...v1.1.0) (2022-07-23)
 
 
