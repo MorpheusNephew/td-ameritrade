@@ -49,6 +49,7 @@
   "dependencies": {
     "@morpheusnephew/td-ameritrade-models": "^0.12.15",
     "axios": "^0.21.1",
+    "conventional-changelog-eslint": "^3.0.9",
     "qs": "^6.9.4"
   },
   "keywords": [
