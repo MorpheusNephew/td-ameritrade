@@ -9,6 +9,17 @@
 
 * made client id optional ([ac5795b](https://github.com/MorpheusNephew/td-ameritrade/commit/ac5795bcb90391a898423f9b87899a8cb9da6f4b))
 
+# [1.1.0](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.4...v1.1.0) (2022-07-23)
+
+
+### feat
+
+* Made client id optional for td client ([81a577f](https://github.com/MorpheusNephew/td-ameritrade/commit/81a577f29b886a5ae32cb06fce6c199fb571c5a1))
+
+### Feat
+
+* made client id optional ([ac5795b](https://github.com/MorpheusNephew/td-ameritrade/commit/ac5795bcb90391a898423f9b87899a8cb9da6f4b))
+
 ## [1.0.4](https://github.com/MorpheusNephew/td-ameritrade/compare/v1.0.3...v1.0.4) (2022-06-16)
 
 
