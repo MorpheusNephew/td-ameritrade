@@ -16,7 +16,6 @@ import TdAmeritradeClient from '@morpheusnephew/td-ameritrade/clients';
 (async () => {
   // Initializing TD Ameritrade client with your client id and access token
   const client = new TdAmeritradeClient({
-    clientId: 'yourClientId',
     accessToken: 'yourAccessToken',
   });
 
