@@ -1,5 +1,5 @@
 import { getAccessTokenUrl } from '../../src';
-import TdAmeritradeClient, { ClientOptions } from '../../src/clients';
+import TdAmeritradeClient from '../../src/clients';
 import { Token, TokenRequest } from '@morpheusnephew/td-ameritrade-models';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
@@ -12,8 +12,15 @@ describe('Auth client tests', () => {
   let mockedAxios: jest.Mocked<typeof Axios>;
   let client: TdAmeritradeClient;
 
+  interface TestClientOptions {
+    clientId: string;
+    redirectUri: string;
+    accessToken: string;
+    refreshToken: string;
+  }
+
   beforeEach(() => {
-    const clientOptions = createMock<ClientOptions>();
+    const clientOptions = createMock<TestClientOptions>();
     client = new TdAmeritradeClient(clientOptions);
     mockedAxios = Axios as jest.Mocked<typeof Axios>;
   });
@@ -96,7 +103,7 @@ describe('Auth client tests', () => {
       const response = createMock<AxiosResponse<Token>>();
 
       const expectedParams: TokenRequest = {
-        client_id: client.clientId,
+        client_id: client.clientId!,
         grant_type: 'authorization_code',
         code,
         redirect_uri: client.redirectUri,
@@ -117,7 +124,7 @@ describe('Auth client tests', () => {
       const response = createMock<AxiosResponse<Token>>();
 
       const expectedParams: TokenRequest = {
-        client_id: client.clientId,
+        client_id: client.clientId!,
         grant_type: 'refresh_token',
         refresh_token: client.refreshToken,
       };
@@ -136,7 +143,7 @@ describe('Auth client tests', () => {
 
       const expectedParams: TokenRequest = {
         access_type: 'offline',
-        client_id: client.clientId,
+        client_id: client.clientId!,
         grant_type: 'refresh_token',
         refresh_token: client.refreshToken,
       };

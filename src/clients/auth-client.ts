@@ -1,11 +1,15 @@
 import TdAmeritradeClient from '.';
 import { getAccessTokenUrl } from '..';
+import assert from 'assert';
 import Axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import {
   Token as AccessTokenResponse,
   TokenRequest as AccessTokenRequest,
 } from '@morpheusnephew/td-ameritrade-models';
+
+const CLIENT_ID_NOT_FOUND = 'clientId not found';
+const REDIRECT_URI_NOT_FOUND = 'redirectUri not found';
 
 export default class AuthClient {
   private _client: TdAmeritradeClient;
@@ -18,6 +22,8 @@ export default class AuthClient {
     code: string,
     state?: string
   ): Promise<AxiosResponse<AccessTokenResponse>> => {
+    assert(this._client.clientId, CLIENT_ID_NOT_FOUND);
+
     const body: AccessTokenRequest = {
       client_id: this._client.clientId,
       grant_type: 'authorization_code',
@@ -31,6 +37,9 @@ export default class AuthClient {
   };
 
   refreshAccessToken = (): Promise<AxiosResponse<AccessTokenResponse>> => {
+    assert(this._client.clientId, CLIENT_ID_NOT_FOUND);
+    assert(this._client.refreshToken, REDIRECT_URI_NOT_FOUND);
+
     const body: AccessTokenRequest = {
       client_id: this._client.clientId,
       grant_type: 'refresh_token',
@@ -41,6 +50,9 @@ export default class AuthClient {
   };
 
   refreshRefreshToken = (): Promise<AxiosResponse<AccessTokenResponse>> => {
+    assert(this._client.clientId, CLIENT_ID_NOT_FOUND);
+    assert(this._client.refreshToken, REDIRECT_URI_NOT_FOUND);
+
     const body: AccessTokenRequest = {
       access_type: 'offline',
       client_id: this._client.clientId,
