@@ -14,14 +14,14 @@ import WatchlistClient from './watchlist-client';
 import { AxiosResponse } from 'axios';
 
 export interface ClientOptions {
-  clientId: string;
+  clientId?: string;
   redirectUri?: string; // Made optional due to only being needed for authorization code flow
   accessToken?: string;
   refreshToken?: string;
 }
 
 export default class TdAmeritradeClient {
-  clientId: string;
+  clientId?: string;
   redirectUri?: string;
   accessToken?: string;
   refreshToken?: string;
